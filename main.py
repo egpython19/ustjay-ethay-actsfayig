@@ -21,8 +21,9 @@ def piggy_words(fact):
     url = "https://hidden-journey-62459.herokuapp.com/piglatinize/"
     payload = {'input_text': fact}
     r = requests.post(url, payload, allow_redirects=False)
-
-    return r.headers['Location']
+    location = r.headers['Location']
+    a_href = f'<a href={location}>{location}</a>'
+    return a_href
 
 
 @app.route('/')
